@@ -270,7 +270,7 @@ app.post('admin/movie/new',function(req,res){
             if (err) {
                 console.log(err)
             }
-            _movie = _.extent(movie,movieObj)
+            _movie = _.extend(movie,movieObj)
             _movie.save(function(err,movie){
                 if(err){
                     console.log(err)
@@ -288,9 +288,8 @@ app.post('admin/movie/new',function(req,res){
             year:movieObj.year,
             poster:movieObj.poster,
             summary:movieObj.summary,
-            flash:movieObj.flash,
+            flash:movieObj.flash
         })
-        _movie = _.extent(movie,movieObj)
         _movie.save(function(err,movie){
             if(err){
                 console.log(err)
