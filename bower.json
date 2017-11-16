@@ -1,0 +1,25 @@
+{
+  "name": "Node Test",
+  "description": "0.0.1",
+  "main": "",
+  "keywords": [
+    "imooc"
+  ],
+  "authors": [
+    "wsl"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
