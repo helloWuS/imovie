@@ -6,16 +6,14 @@ var Movie = require('./models/movie')
 var port = process.env.PORT || 3000
 var bodyParser = require('body-parser')
 
-
 var app = express()
 
 mongoose.connect(' mongodb://localhost:27017/imooc')
-
 app.set('views','./views/pages')
 app.set('view engine','jade')
 //app.use(express.bodyParser())
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use(express.static(path.join(__dirname,'bower_components')))
+app.use(express.static(path.join(__dirname,'public')))
 //app.locals.moment = require('moment')
 app.listen(port)
 
@@ -327,4 +325,19 @@ app.get('/admin/list',function (req,res) {
         })
     })
 
+})
+
+//list delete movie
+app.delete('/admin/list',function (req,res) {
+    var id = req.query.id
+    if(id){
+        Movie.remove({_id:id},function (err,movie) {
+            if(err){
+                console.log(err)
+            }else{
+                res.json({success:1})
+            }
+
+        })
+    }
 })
